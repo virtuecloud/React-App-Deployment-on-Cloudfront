@@ -32,7 +32,7 @@ jobs:
       uses: virtuecloud/Composite-actions/Deploy/S3@test
       with:
          BUCKET_NAME: ${{ secrets.Bucket }}
-         PATH: build/
+         PATH: build/         # path of the file or folder to be uploaded on S3
          
     - name:  Invalidate cache
       uses: virtuecloud/Composite-actions/Deploy/Cloudfront@test
