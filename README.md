@@ -14,9 +14,9 @@
 
 # Introduction
 
-This repository contains the source code to create a CI/CD pipeline for a React application in AWS. The pipeline pulls the source code from GitHub and run tests against the application before deploying it to an S3 bucket for static site hosting. The site will then be distributed using CloudFront which will point to the S3 bucket.
+This repository contains the source code to create a CI/CD pipeline for a React application in AWS. The pipeline pulls the source code from GitHub and run tests against the application to build it before deploying it to an S3 bucket for static site hosting. The site will then be distributed using CloudFront which will point to the S3 bucket.
 
-# INPUTS
+# Inputs
 
 |Name              |Description|Type|Default|
 |------------------|-----------|-------|-------|
