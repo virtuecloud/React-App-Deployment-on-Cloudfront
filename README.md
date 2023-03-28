@@ -51,6 +51,7 @@ Upload the content of the build folder to S3 bucket
 Invalidate the CloudFront distribution to serve the changed file on further requests(every time there is change in the file we need to clear the cache of servers otherwise it will serve old files)
 
 # Usage
+```yaml
 
 on:
  push:
@@ -93,3 +94,4 @@ jobs:
       with:
          AWS_DISTRIBUTION_ID: ${{ secrets.Cloudfront_distribution_ID }}
  
+```
