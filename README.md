@@ -35,10 +35,61 @@ We have used the composite actions here:
 
 # Workflow
 
-## Step1:
+### Step1:
+we defined event to run the job when we push the code to the main branch.
+### Step2:
 Firstly, we defined environment to run the job.
-## Step3:
+### Step3:
 Configured AWS Credentials
-## Step4:
+### Step4:
 Set up the node Environment to run app
+### Step5:
+Install and build the app
+### Step6:
+Upload the content of the build folder to S3 bucket
+### Step7:
+Invalidate the CloudFront distribution to serve the changed file on further requests(every time there is change in the file we need to clear the cache of servers otherwise it will serve old files)
 
+# Usage
+'''
+on:
+ push:
+    branches:
+      - main
+jobs:
+ build:
+   runs-on: ubuntu-latest
+   name: to deploy react app
+   
+   steps:
+      
+    - name: checkout
+      uses: actions/checkout@v1
+
+      
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 16.10.0
+          
+    - name: Build React App
+      uses: virtuecloud/Composite-actions/Build/Node@test
+      
+    - name: Deploy app build to S3 bucket
+      uses: virtuecloud/Composite-actions/Deploy/S3@test
+      with:
+         BUCKET_NAME: ${{ secrets.Bucket }}
+         PATH: build/
+         
+    - name:  Invalidate cache
+      uses: virtuecloud/Composite-actions/Deploy/Cloudfront@test
+      with:
+         AWS_DISTRIBUTION_ID: ${{ secrets.Cloudfront_distribution_ID }}
+  '''
