@@ -36,7 +36,7 @@ We have used the composite actions here:
 # Workflow
 
 ### Step1:
-we defined event to run the job when we push the code to the main branch.
+We defined event to run the job when we push the code to the main branch.
 ### Step2:
 Firstly, we defined environment to run the job.
 ### Step3:
