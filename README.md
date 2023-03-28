@@ -20,10 +20,11 @@ This repository contains the source code to create a CI/CD pipeline for a React 
 # Features
 
 * We have used the composite actions here:
- * To build the react app
- * To deploy the build to S3 Bucket
- * To invalidate cache
+   * To build the react app
+   * To deploy the build to S3 Bucket
+   * To invalidate cache
 
+ 
 # Inputs
 
 |Name              |Description|Type|Default|
