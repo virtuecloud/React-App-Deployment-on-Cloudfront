@@ -21,4 +21,4 @@ This repository contains the source code to create a CI/CD pipeline for a React 
 |Name              |Description|Type|Default|
 |------------------|-----------|-------|-------|
 |Bucket    |Name of your bucket |string |""|
-|Cloudfront_distribution_ID  |  |string ||
+|Cloudfront_distribution_ID  |Distribution ID of Cloudfront Distribution created  |string ||
