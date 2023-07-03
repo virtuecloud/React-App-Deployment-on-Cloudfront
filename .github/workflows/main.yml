@@ -26,15 +26,15 @@ jobs:
         node-version: 16.10.0
           
     - name: Build React App
-      uses: virtuecloud/Composite-actions/Build/Node@test
+      uses: virtuecloud/Composite-actions/Build/Node@main
       
     - name: Deploy app build to S3 bucket
-      uses: virtuecloud/Composite-actions/Deploy/S3@test
+      uses: virtuecloud/Composite-actions/Deploy/S3@main
       with:
          BUCKET_NAME: ${{ secrets.Bucket }}
          PATH: build/         # path of the file or folder to be uploaded on S3
          
     - name:  Invalidate cache
-      uses: virtuecloud/Composite-actions/Deploy/Cloudfront@test
+      uses: virtuecloud/Composite-actions/Deploy/Cloudfront@main
       with:
          AWS_DISTRIBUTION_ID: ${{ secrets.Cloudfront_distribution_ID }}
