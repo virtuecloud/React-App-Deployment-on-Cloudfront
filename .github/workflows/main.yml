@@ -35,6 +35,6 @@ jobs:
          PATH: build/         # path of the file or folder to be uploaded on S3
          
     - name:  Invalidate cache
-      uses: virtuecloud/Composite-actions/Deploy/Cloudfront@main
+      uses: virtuecloud/Composite-actions/Deploy/Cloudfront_invalidate@main
       with:
          AWS_DISTRIBUTION_ID: ${{ secrets.Cloudfront_distribution_ID }}
